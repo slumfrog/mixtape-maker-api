@@ -1,0 +1,2 @@
+class MixtapeTrack < ApplicationRecord
+end

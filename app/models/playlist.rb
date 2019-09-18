@@ -1,3 +1,3 @@
-class Playlist < ApplicationRecord
-    has_many :tracks through :playlist_tracks
+class Mixtape < ApplicationRecord
+    has_many :tracks through :mixtape_tracks
 end
