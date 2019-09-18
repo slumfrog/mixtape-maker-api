@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_154615) do
+ActiveRecord::Schema.define(version: 2019_09_18_182253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "playlist_tracks", force: :cascade do |t|
-    t.integer "playlist_id"
+  create_table "mixtape_tracks", force: :cascade do |t|
+    t.integer "mixtape_id"
     t.integer "track_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "playlists", force: :cascade do |t|
+  create_table "mixtapes", force: :cascade do |t|
     t.string "name"
     t.string "total_tracks"
     t.string "description"
