@@ -15,8 +15,9 @@ class UsersController < ApplicationController
     end
 
     def playlists
-        @current_user
-        # RSpotify::User.find(@current_user.id)
+        playlists = RSpotify::User.find(@current_user.spotify_id).playlists
+        playlist_name = playlists.map{|playlist| playlist.name }
+        render json: playlist_name
     end
 
     private
