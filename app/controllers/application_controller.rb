@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
     end
 
     def get_token
-        request.headers["Authorization"] || request.headers["Authorization"]
+        request.headers["Authorization"] || request.headers["Authorisation"]
     end
 
     def set_current_user

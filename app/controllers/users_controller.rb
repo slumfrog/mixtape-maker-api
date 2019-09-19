@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def create
-        user = User.create (user_params)
+        @user = User.create (user_params)
         if user.valid?
             render json: {user: UserSerializer.new(user), token: encode_token({user_id: user.id}) } , status: :created
         else
@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     def show
         user = User.find(params[:id])
         render({json: {user: UserSerializer.new(user) }})
+    end
+
+    def playlists
+        @current_user
+        # RSpotify::User.find(@current_user.id)
     end
 
     private
