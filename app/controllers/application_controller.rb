@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
     end
 
     def decode_token(token)
-        JWT.decode(token, ENV['RAILS_SECRET'])[0]
+        JWT.decode(token, ENV['RAILS_SECRET'])[0]["user_id"]
     end
 
     def get_token
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::API
         token = get_token
         if token
             decoded_token = decode_token(token)
-            @current_user = User.find(decoded_token["user_id"])
+            @current_user = User.find(decoded_token)
         else 
             @current_user = nil
         end
