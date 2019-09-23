@@ -9,7 +9,7 @@ class SpotifyController < ApplicationController
     def playlist
         # playlist = RSpotify::Playlist.find_by_id('3Nto9k2mww37XoOdgC8cca')
         playlist = RSpotify::Playlist.find_by_id(params[:id])
-        tracks = playlist.tracks.map{|track| { name: track.name, preview: track.preview_url } }
+        tracks = playlist.tracks.map{|track| { name: track.name, preview: track.preview_url, id: track.id } }
         render json: tracks
 
     end
