@@ -1,20 +1,16 @@
 class MixtapesController < ApplicationController
 
-    # def index
-    #     @mixtapes = MixtapeTrack.all
-    #     render( {json: @mixtapes, status: :ok} )
-    # end
-
     def create
-        mixtape = Mixtape.create(mixtape_params)
-        render json: mixtape
+        mixtape = Mixtape.create(name: mixtape_params[:name], personal_message: mixtape_params[:personal_message], user_id: mixtape_params[:user_id])
+
+        track = mixtape_params[:tracks].map{|track| track = Track.create(name: track[:name], artist: track[:artist], comment: track[:comment], duration: track[:duration], preview: track[:preview], track_id: track[:track_id])}
+        render json: track
     end
 
     private
 
     def mixtape_params
-        params.require(:mixtape).permit(:name, :personal_message)
+        params.require(:mixtape).permit(:name, :personal_message, :user_id, {:tracks => [:name, :artist, :comment, :duration, :preview, :track_id]})
     end
     
-
 end
