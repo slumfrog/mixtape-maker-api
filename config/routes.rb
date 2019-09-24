@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
     resources :users, only: [:create, :show]
-    resources :mixtapes, only: [:create, :show, :index]
+    resources :mixtapes, only: [:create, :show]
+    resources :tracks, only: [:create, :shows]
     get '/playlists', to: 'spotify#playlists'
     get '/playlist/:id', to: 'spotify#playlist'
     # get '/playlists', to: 'users#playlists'
