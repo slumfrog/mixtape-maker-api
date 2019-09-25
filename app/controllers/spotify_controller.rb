@@ -2,7 +2,7 @@ class SpotifyController < ApplicationController
 
     def playlists
         playlists = RSpotify::User.find(@current_user.spotify_id).playlists
-        playlist_name = playlists.map{|playlist| {name: playlist.name, id: playlist.id, tracks: playlist.tracks} }
+        playlist_name = playlists.map{|playlist| {name: playlist.name, id: playlist.id, tracks: playlist.tracks, images: playlist.images} }
         render json: playlist_name
     end
 
@@ -20,5 +20,6 @@ class SpotifyController < ApplicationController
         params.permit!
     end
 
-
 end
+
+
