@@ -6,6 +6,3 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(email: 'a@a.com', password_digest: 'teet', spotify_id: 'hihowareyou', profile_img: 'hello')
-
-puts 'seeded'

@@ -1,3 +1,4 @@
 class TrackSerializer < ActiveModel::Serializer
-  attributes :id, :email, :spotify_id
+  attributes :name, :track_id, :preview_url, :artists, :duration, :message, :mixtape_id
+  belongs_to :mixtape
 end

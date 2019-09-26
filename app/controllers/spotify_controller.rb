@@ -22,4 +22,3 @@ class SpotifyController < ApplicationController
 
 end
 
-
