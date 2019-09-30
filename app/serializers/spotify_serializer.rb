@@ -1,4 +1,4 @@
-class TrackSerializer < ActiveModel::Serializer
+class SpotifySerializer < ActiveModel::Serializer
     attributes :name, :tracks, :preview_url
   end
   

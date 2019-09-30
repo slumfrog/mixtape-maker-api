@@ -10,10 +10,10 @@ class AuthController < ApplicationController
     end
 
     def validate_token
-
         user = User.find(decode_token(get_token))
         if user
-            render json: { user: UserSerializer.new(user), token: encode_token(user_id: user.id) }, status: :accepted
+            profile_pic = RSpotify::User.find(user.spotify_id).images[0]["url"]
+            render json: { user: UserSerializer.new(user), profile_pic: profile_pic, token: encode_token(user_id: user.id) }, status: :accepted
         else
             render json: { message: 'User not found' }, status: :unauthorized
         end
