@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :tracks, only: [:create, :shows]
     get '/playlists', to: 'spotify#playlists'
     get '/playlist/:id', to: 'spotify#playlist'
+    get '/profile/', to: 'spotify#profile_pic'
     get '/mixtapes', to: 'mixtapes#mixtapes'
     get '/mixtapes/:id', to: 'mixtapes#mixtape'
     # get '/playlists', to: 'users#playlists'
